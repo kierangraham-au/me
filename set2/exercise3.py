@@ -28,20 +28,16 @@ def fix_it(moves=True, should_move=True):
     Most people write this function with 4 return statements.
     As an extra challenge, see if you can get that down to three.
     """
-    var1 = "WD-40"
-    var2 = "Duct Tape"
-    var3 = "No Problem"
-    if moves == True:
-        should_move == True
-             else moves == False
-        elif moves == False:
-            should_move == True
-            return var1
-        elif moves == True:
-            should_move == False
-            return var2
+    if moves == True and should_move == True:
+        return "No Problem"
+    if moves == True and should_move != True:
+        return "Duct Tape"
+    if moves == False and should_move == False:
+        return "No Problem"
+    if moves == False and should_move != False:
+        return "WD-40"
 
-    return None
+    return fix_it
 
 
 def loops_1a():
@@ -64,8 +60,9 @@ def loops_1a():
         "*",
         "*",
     ]
-
-    return None
+    for stars in stars_list:
+        return stars_list
+    return loops_1a
 
 
 def loops_1c(number_of_items=5, symbol="#"):
@@ -75,6 +72,7 @@ def loops_1c(number_of_items=5, symbol="#"):
     string with exacly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
+
     return None
 
 

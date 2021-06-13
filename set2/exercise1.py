@@ -12,23 +12,25 @@ import platform
 print("hello! Let's get started")  # it printed "hello! Let's get started"
 
 # I think this creates a list of words that will be recalled later.
-some_words = ['what', 'does', 'this', 'line', 'do', '?'] #It printed the entire list
+some_words = ["what", "does", "this", "line", "do", "?"]  # It created the list
 
 
 # I think this prints "word"
-for word in some_words: #this did nothing
+for word in some_words:  # it printed each word in the list
     print(word)
 
 # I think this prints "x"
-for x in some_words: #this did nothing
+for x in some_words:  # it printed each word in the list
     print(x)
 
 # I think this prints the whole list
-print(some_words) #printed the entire list in the format of a list
+print(some_words)  # printed the entire list in the format of a list
 
 # I think this prints words that contain more than 3 words
 if len(some_words) > 3:
-    print('some_words contains more than 3 words') #since some_words contained more than 3 words, it printed the statement "some words contain more than 3 words"
+    print(
+        "some_words contains more than 3 words"
+    )  # since some_words contained more than 3 words, it printed the statement "some words contain more than 3 words"
 
 # I think this returns the details of the computer
 def usefulFunction():
@@ -39,5 +41,6 @@ def usefulFunction():
     """
     print(platform.uname())
 
+
 # I think Useful Function gives all the computer information as a callable string
-usefulFunction() #it printed the system details
+usefulFunction()  # it printed the system details
