@@ -69,11 +69,15 @@ def loops_1c(number_of_items=5, symbol="#"):
     """Respond to variables.
 
     Using any method, return a list of number_of_items items, each one a
-    string with exacly one symbol in it.
+    string with exactly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
 
-    return None
+    symbol_list = []
+    i = 0
+    for number in number_of_items:
+        symbol_list = symbol_list.append(str(symbol))
+    return symbol_list
 
 
 def loops_2():
@@ -94,6 +98,8 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
+    symbol = ["*"]
+
     return None
 
 
