@@ -72,12 +72,15 @@ def loops_1c(number_of_items=5, symbol="#"):
     string with exactly one symbol in it.
     E.g.: ['#', '#', '#', '#', '#']
     """
+    symbols = []  # create list
+    for i in range(
+        0, number_of_items
+    ):  # for loop with range starting at 0, number of items being the final iteration
+        symbols.append(
+            symbol
+        )  # add symbol at the end of the list, iterated by number of items
 
-    symbol_list = []
-    i = 0
-    for number in number_of_items:
-        symbol_list = symbol_list.append(str(symbol))
-    return symbol_list
+    return symbols
 
 
 def loops_2():
@@ -98,9 +101,17 @@ def loops_2():
             ['*', '*', '*', '*', '*', '*', '*', '*', '*', '*'],
           ]
     """
-    symbol = ["*"]
 
-    return None
+    main_list = []  # create the list that will hold the 10 lists
+
+    for j in range(10):  # for loop that iterates 10 times
+        stars_list = []  # create the list of stars to be 10
+        for i in range(10):  # for loop that iterates 10 times, to create 10 lists
+            stars_list.append("*")  # stars list that adds a star 10 times to each list
+        main_list.append(stars_list)  # mainlist adds 1 stars list 10 times
+
+    print(main_list)
+    return main_list
 
 
 def loops_3():
@@ -124,7 +135,17 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
+
+    numbers_list = []  # create the list that will hold the 10 lists
+
+    for j in range(10):  # for loop that iterates 10 times
+        integers_list = []  # create the list of integers
+        for i in range(10):  # iterate 10 times
+            integers_list.append(str(j))  # iterate with the current integer being used
+        numbers_list.append(integers_list)  # mainlist adds 1 stars list 10 times
+
+    print(numbers_list)
+    return numbers_list
 
 
 def loops_4():
@@ -144,7 +165,16 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    numbers_list = []  # create the list that will hold the 10 lists
+
+    for j in range(10):  # for loop that iterates 10 times
+        integers_list = []  # create the list of integers
+        for i in range(10):  # iterate 10 times
+            integers_list.append(str(i))  # iterate with the current integer being used
+        numbers_list.append(integers_list)  # mainlist adds 1 stars list 10 times
+
+    print(numbers_list)
+    return numbers_list
 
 
 def loops_5():
@@ -171,7 +201,18 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    numbers_list = []  # create the list that will hold the 10 lists
+
+    for i in range(10):  # for loop that iterates 5 times
+        integers_list = []  # create the list of integers
+        for j in range(0, 5):  # iterate 5 times
+            integers_list.append(
+                str[i] + str[j]
+            )  # iterate with i and j, adding them together
+        numbers_list.append(integers_list)
+
+    print(numbers_list)
+    return numbers_list
 
 
 def loops_6():
