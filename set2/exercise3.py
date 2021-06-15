@@ -110,7 +110,6 @@ def loops_2():
             stars_list.append("*")  # stars list that adds a star 10 times to each list
         main_list.append(stars_list)  # mainlist adds 1 stars list 10 times
 
-    print(main_list)
     return main_list
 
 
@@ -144,7 +143,6 @@ def loops_3():
             integers_list.append(str(j))  # iterate with the current integer being used
         numbers_list.append(integers_list)  # mainlist adds 1 stars list 10 times
 
-    print(numbers_list)
     return numbers_list
 
 
@@ -173,7 +171,6 @@ def loops_4():
             integers_list.append(str(i))  # iterate with the current integer being used
         numbers_list.append(integers_list)  # mainlist adds 1 stars list 10 times
 
-    print(numbers_list)
     return numbers_list
 
 
@@ -206,12 +203,9 @@ def loops_5():
     for i in range(10):  # for loop that iterates 5 times
         integers_list = []  # create the list of integers
         for j in range(0, 5):  # iterate 5 times
-            integers_list.append(
-                str[i] + str[j]
-            )  # iterate with i and j, adding them together
+            integers_list.append("(i{}, j{})".format(i, j))
         numbers_list.append(integers_list)
 
-    print(numbers_list)
     return numbers_list
 
 
@@ -235,7 +229,19 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
-    return None
+    wedge_list = []  # create wedge list
+
+    for i in range(
+        1, 11
+    ):  # add 1 to the range so you dont get the initial list generated
+        mario_list = []  # create the second list inside the for loop
+        for j in range(i):  # iterate with i to receive increasing numbers
+            mario_list.append(
+                str(j)
+            )  # iterate with j so the for loop continues going up until it reaches the i cut off
+        wedge_list.append(mario_list)  # add each list with each iteration
+
+    return wedge_list
 
 
 def loops_7():
@@ -259,7 +265,30 @@ def loops_7():
     This is a hard problem. Use lots of experimentation and draw
     lots of diagrams!
     """
-    return None
+    final_list = []  # create final list
+
+    j = 0
+    n = (j * 2) + 1
+    g = (9 - n) // 2
+    x = 0
+    y = 0
+    z = 0
+
+    for j in range(0, 5, 1):
+        stars_grid = []
+        n = (j * 2) + 1
+        g = (9 - n) // 2
+        for x in range(g):
+            stars_grid.append(" ")
+        for y in range(n):
+            stars_grid.append("*")
+        for z in range(g):
+            stars_grid.append(" ")
+
+        final_list.append(stars_grid)
+
+    print(final_list)
+    return final_list
 
 
 def little_printer(some_kind_of_list, exercise_name):

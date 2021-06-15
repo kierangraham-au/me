@@ -206,4 +206,182 @@ numbers_list = []  # create the list that will hold the 10 lists
     return numbers_list
 
     didnt need to but it returned values adding each other together, which I was afraid of. I need to find a way to include the integers as seperate lists maybe?
+
+    numbers_list = []  # create the list that will hold the 10 lists
+
+    for i in range(10):  # for loop that iterates 5 times
+        integers_list = []  # create the list of integers
+        for j in range(0, 5):  # iterate 5 times
+            integers_list.append(
+                "i" + str(i), "j" + str(j)
+            )  # iterate with i and j, adding them together
+        numbers_list.append(integers_list)
+
+    print(numbers_list)
+    return numbers_list
+
+    didnt work
+
+    numbers_list = []  # create the list that will hold the 10 lists
+
+    for i in range(10):  # for loop that iterates 5 times
+        integers_list = []  # create the list of integers
+        for j in range(0, 5):  # iterate 5 times
+            integers_list.append(
+                ("i" + i, "j" + j)
+            )  # iterate with i and j, adding them together
+        numbers_list.append(integers_list)
+
+    print(numbers_list)
+    return numbers_list
+
+Another
+    numbers_list = []  # create the list that will hold the 10 lists
+
+    for i in range(10):  # for loop that iterates 5 times
+        integers_list = []  # create the list of integers
+        for j in range(0, 5):  # iterate 5 times
+            integers_list.append(
+                ("i{i}", "j{j}")
+            )  # iterate with i and j, adding them together
+        numbers_list.append(integers_list)
+
+    print(numbers_list)
+    return numbers_list
+
+
+    Another
     
+    numbers_list = []  # create the list that will hold the 10 lists
+
+    for i in range(10):  # for loop that iterates 5 times
+        integers_list = []  # create the list of integers
+        for j in range(0, 5):  # iterate 5 times
+            integers_list.append((str("i")+i,str("j")+j))  # iterate with i and j, adding them together
+        numbers_list.append(integers_list)
+
+    print(numbers_list)
+    return numbers_list
+
+
+
+
+Got the right answers but it didnt get the tick
+
+numbers_list = []  # create the list that will hold the 10 lists
+
+    for i in range(10):  # for loop that iterates 5 times
+        integers_list = []  # create the list of integers
+        for j in range(0, 5):  # iterate 5 times
+            integers_list.append(("i" + str(i), "j" + str(j)))
+        numbers_list.append(integers_list)
+
+    print(numbers_list)
+    return numbers_list
+
+    After looking at the answer, I can see the format option needed i and j in it. I shouldve googled how the format option works because it wouldve made my life easier.
+
+    numbers_list = []  # create the list that will hold the 10 lists
+
+    for i in range(10):  # for loop that iterates 5 times
+        integers_list = []  # create the list of integers
+        for j in range(0, 5):  # iterate 5 times
+            integers_list.append("(i{}, j{})".format(i, j))
+        numbers_list.append(integers_list)
+
+    print(numbers_list)
+    return numbers_list
+
+    final answer, post trouble shooting with formatting
+
+
+
+    wedge_list = []  # create wedge list
+
+    for i in range(
+        1, 11
+    ):  # add 1 to the range so you dont get the initial list generated
+        mario_list = []  # create the second list inside the for loop
+        for j in range(i):  # iterate with i to receive increasing numbers
+            mario_list.append(
+                str(j)
+            )  # iterate with j so the for loop continues going up until it reaches the i cut off
+        wedge_list.append(mario_list)  # add each list with each iteration
+
+    return wedge_list
+
+    wasnt too hard, once I figured out the range issue creating an extra []
+
+    Structure for final question
+    
+    final_list = []  # create final list
+
+    for i in range(1, 11):  #
+        boss_list = []  #
+        for j in range(i):  #
+            boss_list.append(str(j))  #
+        final_list.append(boss_list)  #
+
+    return final_list
+
+    final_list = []  # create final list
+    depth = 5
+    width = 9
+    n = 1
+
+    for i in range(depth):
+        stars_grid = []
+        for j in range(width):
+            if j > i:
+                stars_grid.append("*")
+            stars_grid.append(" ")
+        final_list.append(stars_grid)
+
+    print(final_list)
+    return final_list
+
+Test
+
+final_list = []  # create final list
+    depth = 4
+    width = 4
+    n = 1
+
+    for i in range(depth):
+        stars_grid = []
+        for j in range(width):
+            if j == i:
+                stars_grid.append("*")
+            stars_grid.append(" ")
+        final_list.append(stars_grid)
+
+    print(final_list)
+    return final_list
+
+    Final Answer
+    Had to mess around with equations and finally got it when I put the equations in the for loop, rather than defining them at the top
+    
+     final_list = []  # create final list
+
+    j = 0
+    n = (j * 2) + 1
+    g = (9 - n) // 2
+    x = 0
+    y = 0
+    z = 0
+
+    for j in range(0, 5, 1):
+        stars_grid = []
+        n = (j * 2) + 1
+        g = (9 - n) // 2
+        for x in range(g):
+            stars_grid.append(" ")
+        for y in range(n):
+            stars_grid.append("*")
+        for z in range(g):
+            stars_grid.append(" ")
+
+        final_list.append(stars_grid)
+
+    print(final_list)
+    return final_list
