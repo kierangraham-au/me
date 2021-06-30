@@ -4,6 +4,7 @@ Steps on the way to making your own guessing game.
 """
 
 import random
+from typing import Type
 
 
 def advancedGuessingGame():
@@ -26,8 +27,51 @@ def advancedGuessingGame():
     purpose if you can!
     """
 
+    print("\nWelcome to the Advanced guessing game!")
+    print("A number between 10 and 20 ?")
+
+    started = False
+
+    while not started:
+        try:
+            lowerBound = input("Enter a lower bound: ")
+            lowerBound = int(lowerBound)
+            upperBound = input("Enter of upper bound: ")
+            upperBound = int(upperBound)
+
+            print(
+                "OK then, a number between {} and {} ?".format(lowerBound, upperBound)
+            )
+            started = True
+
+        except (ValueError, TypeError):
+            print("Please enter an Integer: ")
+
+    actualNumber = random.randint(lowerBound, upperBound)
+    guessed = False
+    while not guessed:
+        try:
+            guessedNumber = input("Guess a number: ")
+            guessedNumber = int(guessedNumber)
+            print("You guessed {},".format(guessedNumber))
+            if guessedNumber == actualNumber:
+                print("You got it!! It was {}".format(actualNumber))
+                guessed = True
+
+            elif (lowerBound > guessedNumber) or (upperBound < guessedNumber):
+                print("That is not within the bounds.")
+
+            elif guessedNumber < actualNumber:
+                print("Too small, try again :'(")
+            else:
+                print("Too big, try again :'(")
+        except (ValueError, TypeError):
+            print("{} in not a number, try again: ".format(guessedNumber))
+
     return "You got it!"
-    # the tests are looking for the exact string "You got it!". Don't modify that!
+
+
+# the tests are looking for the exact string "You got it!". Don't modify that!
 
 
 if __name__ == "__main__":
