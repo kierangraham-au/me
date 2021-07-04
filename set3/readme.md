@@ -547,3 +547,113 @@ print("\nWelcome to the Advanced guessing game!")
     Binary Search
     
 
+    First try at Binary Search
+    
+    tries = 0
+    guess = 0
+
+    # Write your code in here
+
+    print("\nWelcome to Kieran's Binary Search")
+    print("A guess between 10 and 20?")
+
+    started = False
+
+    while not started:
+        try:
+            lowerBound = input("Enter a lower bound: ")
+            lowerBound = int(lowerBound)
+            upperBound = input("Enter of upper bound: ")
+            upperBound = int(upperBound)
+
+            print(
+                "OK then, a number between {} and {} ?".format(
+                    lowerBound, upperBound)
+            )
+            started = True
+
+        except (ValueError, TypeError):
+            print("Please enter a proper number: ")
+
+    actual_number = random.randint(lowerBound, upperBound)
+    guessing = False
+    while not guessing:
+
+        for tries in range(0):
+            guess = input("Try to guess the number: ")
+            guess = int
+            print("You guessed {}".format(guess))
+            if guess == actual_number:
+                print("You got it!")
+                guessing == True
+                return {"guess": guess, "tries": tries}
+
+            elif (lowerBound > guess) or (upperBound < guess):
+                print("That is not within the bounds.")
+                print("{}".format(guess))
+                tries += 1
+            elif guess < actual_number:
+                print("You guessed {}, Too small, try again :'(".format(guess))
+                tries += 1
+            else:
+                print("You guessed {}, Too big, try again :'(".format(guess))
+                tries += 1
+
+    return {"guess": guess, "tries": tries}
+
+
+Version 2
+
+tries = 0
+    guess = 0
+
+    # Write your code in here
+
+    print("\nWelcome to Kieran's Binary Search")
+    print("A guess between 10 and 20?")
+
+    started = False
+
+    while not started:
+        try:
+            lowerBound = input("Enter a lower bound: ")
+            lowerBound = int(lowerBound)
+            upperBound = input("Enter of upper bound: ")
+            upperBound = int(upperBound)
+
+            print(
+                "OK then, a number between {} and {}.".format(
+                    lowerBound, upperBound)
+            )
+            started = True
+
+        except (ValueError, TypeError):
+            print("Please enter a proper number.")
+
+    guessing = False
+    actual_number = random.randint(lowerBound, upperBound)
+
+    while not guessing:
+        try:
+            guess = int(input("Try to guess the number: "))
+            #print("You guessed {}".format(guess))
+            if guess == actual_number:
+                print("You got it!")
+                guessing == True
+
+            elif (lowerBound > guess) or (upperBound < guess):
+                print("That is not within the bounds.")
+                print("{}".format(guess))
+                tries += 1
+
+            elif guess < actual_number:
+                print("You guessed {}, Too small, try again :'(".format(guess))
+                tries += 1
+
+            else:
+                print("You guessed {}, Too big, try again :'(".format(guess))
+                tries += 1
+        except (ValueError, TypeError):
+            print("{} is not a number, try again: ".format(guess))
+
+    return {"guess": guess, "tries": tries}
