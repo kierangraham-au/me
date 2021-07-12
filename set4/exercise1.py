@@ -36,7 +36,30 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName": None, "password": None, "postcodePlusID": None}
+
+    try:
+        name = data['results'][0]['name']['last']
+
+        password = data['results'][0]['login']['password']
+
+        postcode = data['results'][0]['location']['postcode']
+
+        id = data['results'][0]['id']['value']
+
+    except Exception as e:
+        print(e)
+
+    #     lastName = i['name'], {'last'}
+    #     print(lastName)
+
+    # for j in data['results'][2]['login']['password']:
+    #     password = (i({'password:'}))
+    #     print(password)
+    # for f in data['results'][1]['location']['postcode']:
+    #     postcode = (int(i({'postcode'})))
+    #     print(postcode)
+
+    return {"lastName": name, "password": password, "postcodePlusID": int(postcode) + int(id)}
 
 
 def wordy_pyramid():
@@ -73,7 +96,34 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
-    pass
+    i = 3
+    j = 4
+    twenty = 20
+    list = []
+
+    while i != 21:
+        longstring = str(i)
+        for url in ['https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}'.format(
+                longstring)]:
+            response = requests.get(url)
+            list.append(response.text)
+            i += 2
+
+    twenty == str(20)
+    for url in ['https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}'.format(
+                twenty)]:
+        response = requests.get(url)
+        list.append(response.text)
+    j = 18
+    while j != 2:
+        jstring = str(j)
+        for url in ['https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}'.format(
+                jstring)]:
+            response = requests.get(url)
+            list.append(response.text)
+            j -= 2
+
+    return list
 
 
 def pokedex(low=1, high=5):
@@ -83,7 +133,7 @@ def pokedex(low=1, high=5):
     Using the Pokemon API: https://pokeapi.co get some JSON using the request library
     (a working example is filled in below).
     Parse the json and extract the values needed.
-    
+
     TIP: reading json can someimes be a bit confusing. Use a tool like
          http://www.jsoneditoronline.org/ to help you see what's going on.
     TIP: these long json accessors base["thing"]["otherThing"] and so on, can
@@ -96,7 +146,7 @@ def pokedex(low=1, high=5):
     r = requests.get(url)
     if r.status_code is 200:
         the_json = json.loads(r.text)
-    return {"name": None, "weight": None, "height": None}
+    # return {"name": None, "weight": None, "height": None}
 
 
 def diarist():
