@@ -143,13 +143,13 @@ def pokedex(low, high):
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
     pokemonlist = []
-    while low != (high + 1):
-        url = template.format(id=low)
+    for i in range(low, high+1):
+        url = "https://pokeapi.co/api/v2/pokemon/{id}".format(id=i)
         r = requests.get(url)
         if r.status_code == 200:
             the_json = json.loads(r.text)
             height = the_json['height']
-        low = low + 1
+        i = i + 1
         pokemonlist.append(height)
 
     max_value = max(pokemonlist)
@@ -158,7 +158,7 @@ def pokedex(low, high):
     idindex = (max_index + 1)
     idindex = str(idindex)
 
-    url = template.format(id=idindex)
+    url = "https://pokeapi.co/api/v2/pokemon/{id}".format(id=idindex)
     r = requests.get(url)
     if r.status_code == 200:
         the_json = json.loads(r.text)
@@ -166,7 +166,7 @@ def pokedex(low, high):
         weight = the_json['weight']
         name = the_json['forms'][0]['name']
 
-    print(name)
+    print(name, weight, height)
 
     return {"name": name, "weight": weight, "height": height}
 
