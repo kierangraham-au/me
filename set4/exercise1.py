@@ -142,28 +142,50 @@ def pokedex(low=1, high=5):
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
-    url = template.format(id=5)
+    pokemonlist = []
+    while low != range(high + 1):
+        url = template.format(id=low)
+        r = requests.get(url)
+        if r.status_code == 200:
+            the_json = json.loads(r.text)
+            height = the_json['height']
+        low = low + 1
+        pokemonlist.append(height)
+
+    max_value = max(pokemonlist)
+    max_index = pokemonlist.index(max_value)
+
+    idindex = (max_index + 1)
+    idindex = str(idindex)
+
+    url = template.format(id=idindex)
     r = requests.get(url)
-    if r.status_code is 200:
+    if r.status_code == 200:
         the_json = json.loads(r.text)
-    # return {"name": None, "weight": None, "height": None}
+        height = the_json['height']
+        weight = the_json['weight']
+        name = the_json['weight']
+
+    print(name)
+
+    # return {"name": name, "weight": weight, "height": height}
 
 
-def diarist():
-    """Read gcode and find facts about it.
+# def diarist():
+#     """Read gcode and find facts about it.
 
-    Read in Trispokedovetiles(laser).gcode and count the number of times the
-    laser is turned on and off. That's the command "M10 P1".
-    Write the answer (a number) to a file called 'lasers.pew' in the Set4 directory.
-    TIP: you need to write a string, so you'll need to cast your number
-    TIP: Trispokedovetiles(laser).gcode uses windows style line endings. CRLF
-         not just LF like unix does now. If your comparison is failing this
-         might be why. Try in rather than == and that might help.
-    TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
-         the test will have nothing to look at.
-    TIP: this might come in handy if you need to hack a 3d print file in the future.
-    """
-    pass
+#     Read in Trispokedovetiles(laser).gcode and count the number of times the
+#     laser is turned on and off. That's the command "M10 P1".
+#     Write the answer (a number) to a file called 'lasers.pew' in the Set4 directory.
+#     TIP: you need to write a string, so you'll need to cast your number
+#     TIP: Trispokedovetiles(laser).gcode uses windows style line endings. CRLF
+#          not just LF like unix does now. If your comparison is failing this
+#          might be why. Try in rather than == and that might help.
+#     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
+#          the test will have nothing to look at.
+#     TIP: this might come in handy if you need to hack a 3d print file in the future.
+#     """
+#     pass
 
 
 if __name__ == "__main__":
