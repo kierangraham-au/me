@@ -192,22 +192,18 @@ def diarist():
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
 
-    mode = "r"
     flag = 0
 
-    with open('me\set4\Trispokedovetiles(laser).gcode', mode) as printing:
+    with open('me\set4\Trispokedovetiles(laser).gcode', 'r') as printing:
         response = printing.readlines()
     for line in response:
         if 'M10 P1' in line:
             print('on/off')
             flag += 1
     flag = str(flag)
-    print(flag)
-    json_object = [flag]
 
-    with open('lasers.pew', 'w') as jsonFile:
-        json.dump(flag, jsonFile)
-
+    printing = open("lasers.pew", 'w')
+    printing.write(flag)
     printing.close()
 
     pass
