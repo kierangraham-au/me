@@ -96,32 +96,32 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
-    # i = 3
-    # j = 4
-    # twenty = 20
-    # list = []
+    i = 3
+    j = 4
+    twenty = 20
+    list = []
 
-    # while i != 21:
-    #     longstring = str(i)
-    #     for url in ['https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}'.format(
-    #             longstring)]:
-    #         response = requests.get(url)
-    #         list.append(response.text)
-    #         i += 2
+    while i != 21:
+        longstring = str(i)
+        for url in ['https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}'.format(
+                longstring)]:
+            response = requests.get(url)
+            list.append(response.text)
+            i += 2
 
-    # twenty == str(20)
-    # for url in ['https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}'.format(
-    #             twenty)]:
-    #     response = requests.get(url)
-    #     list.append(response.text)
-    # j = 18
-    # while j != 2:
-    #     jstring = str(j)
-    #     for url in ['https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}'.format(
-    #             jstring)]:
-    #         response = requests.get(url)
-    #         list.append(response.text)
-    #         j -= 2
+    twenty == str(20)
+    for url in ['https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}'.format(
+                twenty)]:
+        response = requests.get(url)
+        list.append(response.text)
+    j = 18
+    while j != 2:
+        jstring = str(j)
+        for url in ['https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}'.format(
+                jstring)]:
+            response = requests.get(url)
+            list.append(response.text)
+            j -= 2
 
     return list
 
@@ -142,39 +142,39 @@ def pokedex(low=1, high=5):
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
 
-    # pokemonheight = []
-    # pokemonlist = []
-    # for i in range(low, high+1):
-    #     url = "https://pokeapi.co/api/v2/pokemon/{id}".format(id=i)
-    #     r = requests.get(url)
-    #     if r.status_code == 200:
-    #         the_json = json.loads(r.text)
-    #         height = the_json['height']
-    #     pokemonheight.append(height)
-    #     the_json['index'] = i
-    #     pokemonlist.append(the_json)
+    pokemonheight = []
+    pokemonlist = []
+    for i in range(low, high+1):
+        url = "https://pokeapi.co/api/v2/pokemon/{id}".format(id=i)
+        r = requests.get(url)
+        if r.status_code == 200:
+            the_json = json.loads(r.text)
+            height = the_json['height']
+        pokemonheight.append(height)
+        the_json['index'] = i
+        pokemonlist.append(the_json)
 
-    # max_value = max(pokemonheight)
-    # max_index = pokemonheight.index(max_value)
-    # the_json = pokemonlist[max_index]
-    # height = the_json['height']
-    # weight = the_json['weight']
-    # name = the_json['forms'][0]['name']
+    max_value = max(pokemonheight)
+    max_index = pokemonheight.index(max_value)
+    the_json = pokemonlist[max_index]
+    height = the_json['height']
+    weight = the_json['weight']
+    name = the_json['forms'][0]['name']
 
-    # idindex = (max_index + low)
-    # idindex = str(idindex)
+    idindex = (max_index + low)
+    idindex = str(idindex)
 
-    # url = "https://pokeapi.co/api/v2/pokemon/{id}".format(id=idindex)
-    # r = requests.get(url)
-    # if r.status_code == 200:
-    #     the_json = json.loads(r.text)
-    #     height = the_json['height']
-    #     weight = the_json['weight']
-    #     name = the_json['forms'][0]['name']
+    url = "https://pokeapi.co/api/v2/pokemon/{id}".format(id=idindex)
+    r = requests.get(url)
+    if r.status_code == 200:
+        the_json = json.loads(r.text)
+        height = the_json['height']
+        weight = the_json['weight']
+        name = the_json['forms'][0]['name']
 
-    # print(name, weight, height)
+    print(name, weight, height)
 
-    # return {"name": name, "weight": weight, "height": height}
+    return {"name": name, "weight": weight, "height": height}
 
 
 def diarist():
@@ -194,7 +194,7 @@ def diarist():
 
     flag = 0
 
-    with open('me\set4\Trispokedovetiles(laser).gcode', 'r') as printing:
+    with open('Trispokedovetiles(laser).gcode', 'r') as printing:
         response = printing.readlines()
     for line in response:
         if 'M10 P1' in line:
