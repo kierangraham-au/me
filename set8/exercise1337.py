@@ -24,38 +24,61 @@ def password_please() -> str:
     """Returns a string, 8 or more characters long, contains at
     least one upper case letter and one lowercase letter.
     TIP: don't put in a real password!"""
-    return None
+
+    password = str('Leftmanj')
+
+    return password
 
 
 def list_please() -> list:
     """Returns a list, you can put anything in the list."""
-    return None
+
+    list1 = ['one', 'two']
+
+    return list1
 
 
 def int_list_please() -> list:
     """Returns a list of integers, any integers are fine."""
-    return None
+
+    list2 = [2, 3, 4]
+
+    return list2
 
 
 def string_list_please() -> list:
     """Returns a list of strings, any string are fine."""
-    return None
+
+    list3 = [str('one'), str('two'), str('three')]
+
+    return list3
 
 
 def dictionary_please() -> dict:
     """Returns a dictionary, anything you like."""
-    return None
+
+    dic = {'dic': "one"}
+
+    return dic
 
 
 def is_it_5(some_number) -> bool:
     """Returns True if the argument passed is 5, otherwise returns False."""
-    well_is_it = None
-    return well_is_it
+
+    if some_number == 5:
+        return True
+    else:
+        return False
 
 
 def take_five(some_number) -> int:
     """Subtracts 5 from some_number."""
-    return None
+
+    number = 5
+
+    number2 = (some_number - number)
+
+    return int(number2)
 
 
 def greet(name="Towering Timmy") -> str:
@@ -64,7 +87,8 @@ def greet(name="Towering Timmy") -> str:
     E.g. if given as "Towering Timmy" it should
          return "Well hello, Towering Timmy"
     """
-    return None
+
+    return str("Well hello, {}").format(name)
 
 
 def one_counter(input_list=[1, 4, 1, 5, 1, 1]) -> int:
@@ -72,18 +96,25 @@ def one_counter(input_list=[1, 4, 1, 5, 1, 1]) -> int:
     Return an integer.
     TIP: the test will use a different input_list, so don't just return 2
     """
-    count = None
+    count = 0
+    for i in input_list:
+        if i == 1:
+            count += 1
 
-    return count
+    return int(count)
 
 
 def n_counter(search_for_this, input_list=[1, 4, 1, 5, 1, 1]) -> int:
     """Count the number of times search_for_this shows up in the input_list.
     Return an integer.
     """
-    count = None
 
-    return count
+    count = 0
+    for i in input_list:
+        if i == search_for_this:
+            count += 1
+
+    return int(count)
 
 
 def fizz_buzz() -> List:
@@ -105,7 +136,15 @@ def fizz_buzz() -> List:
          'FizzBuzz', 16, 17, ...]
     """
     fizz_buzz_list = []
-    # your code here
+    for i in range(1, 101):
+        if i % 3 is 0 and i % 5 is 0:
+            fizz_buzz_list.append("FizzBuzz")
+        elif i % 5 is 0:
+            fizz_buzz_list.append("Buzz")
+        elif i % 3 is 0:
+            fizz_buzz_list.append("Fizz")
+        else:
+            fizz_buzz_list.append(i)
 
     return fizz_buzz_list
 
@@ -122,7 +161,10 @@ def set_it_on_fire(input_string="very naughty boy") -> str:
     TIP: make sure that you have a 🔥 on both ends of the string.
     """
 
-    return None
+    input_string = "🔥".join(input_string)
+    input_string = ("🔥" + input_string + "🔥")
+
+    return input_string.upper()
 
 
 def pet_filter(letter="a") -> List:
@@ -140,6 +182,9 @@ def pet_filter(letter="a") -> List:
     ]
     # fmt: on
     filtered = []
+    for i in range(len(pets)):
+        if letter in pets[i]:
+            filtered.append(pets[i])
 
     return filtered
 
@@ -155,7 +200,22 @@ def best_letter_for_pets() -> str:
     import string
 
     the_alphabet = string.ascii_lowercase
-    most_popular_letter = ""
+    pets = [
+        "dog", "goat", "pig", "sheep", "cattle", "zebu", "cat", "chicken",
+        "guinea pig", "donkey", "duck", "water buffalo", "python", "scorpion",
+        "western honey bee", "dromedary camel", "horse", "silkmoth",
+        "pigeon", "goose", "yak", "bactrian camel", "llama", "alpaca",
+        "guineafowl", "ferret", "muscovy duck", "barbary dove", "cichlid",
+        "bali cattle", "gayal", "turkey", "goldfish", "rabbit", "koi",
+        "canary", "society finch", "fancy mouse", "siamese fighting fish",
+        "fancy rat and lab rat", "mink", "red fox", "hedgehog", "guppy"
+    ]
+
+    filtered = []
+    for i in pets:
+        list(pets[i])
+        if list(pets[i]) in the_alphabet:
+            filtered.append()
 
     return most_popular_letter
 
@@ -185,8 +245,69 @@ def make_filler_text_dictionary() -> Dict:
     TIP: you'll need the requests library
     """
 
-    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
-    wd = {}
+    low = 3
+    high = 7
+    while low != high + 1:
+        if low == 3:
+            three_List = []
+            for i in range(4):
+                low = str(low)
+                url = (
+                    "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}".format(low))
+                r = requests.get(url)
+                three_List.append(r.text)
+                wd = {low: three_List}
+                low = int(low)
+                i += 1
+            low += 1
+        elif low == 4:
+            four_List = []
+            for i in range(4):
+                low = str(low)
+                url = (
+                    "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}".format(low))
+                r = requests.get(url)
+                four_List.append(r.text)
+                wd[low] = four_List
+                low = int(low)
+                i += 1
+            low += 1
+        elif low == 5:
+            five_List = []
+            for i in range(4):
+                low = str(low)
+                url = (
+                    "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}".format(low))
+                r = requests.get(url)
+                five_List.append(r.text)
+                wd[low] = five_List
+                low = int(low)
+                i += 1
+            low += 1
+        elif low == 6:
+            six_List = []
+            for i in range(4):
+                low = str(low)
+                url = (
+                    "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}".format(low))
+                r = requests.get(url)
+                six_List.append(r.text)
+                wd[low] = six_List
+                low = int(low)
+                i += 1
+            low += 1
+        elif low == 7:
+            seven_List = []
+            for i in range(4):
+                low = str(low)
+                url = (
+                    "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={0}".format(low))
+                r = requests.get(url)
+                seven_List.append(r.text)
+                wd[low] = seven_List
+                low = int(low)
+                i += 1
+            low += 1
 
     return wd
 
@@ -201,10 +322,15 @@ def random_filler_text(number_of_words=200) -> str:
     TIP: you'll need the random library,
         e.g. random.randint(low, high)
     """
-
     my_dict = make_filler_text_dictionary()
 
     words = []
+
+    for i in range(number_of_words):
+        ran = random.randint(3, 7)
+        ran = str(ran)
+        ran2 = random.randint(0, 3)
+        words.append(my_dict[ran][ran2])
 
     return " ".join(words)
 
