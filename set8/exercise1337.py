@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 """
 I'm in UR exam.
-This is the same as the weekly exercises, fill in the functions,
+This is the same as the setly exercises, fill in the functions,
 and test them to see if they work.
 You have 2 hours.
 """
@@ -11,28 +11,28 @@ import time
 
 def string_please() -> str:
     """Returns a string, anything you like."""
-    return "I'm a string!"
+    return None
 
 
 def list_please() -> list:
     """Returns a list, anything you like."""
-    return [None, None]
+    return None
 
 
 def dictionary_please() -> dict:
     """Returns a dictionary, anything you like."""
-    return {"jelly": None}
+    return None
 
 
 def is_it_5(some_number) -> bool:
     """Returns True if the argument passed is 5, otherwise returns False."""
-    well_is_it = some_number == 5
+    well_is_it = None
     return well_is_it
 
 
 def take_five(some_number) -> int:
     """Subtracts 5 from some_number."""
-    return some_number - 5
+    return None
 
 
 def greet(name="Towering Timmy"):
@@ -40,7 +40,7 @@ def greet(name="Towering Timmy"):
     return a string of "Hello " and the name argument.
     E.g. if given as "Towering Timmy" it should return "Hello Towering Timmy"
     """
-    return f"Hello {name}"
+    return None
 
 
 def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
@@ -48,10 +48,7 @@ def three_counter(input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7]):
     Return an integer.
     TIP: the test will use a different input_list, so don't just return 5
     """
-    count = 0
-    for n in input_list:
-        if n is 3:
-            count += 1
+
     return count
 
 
@@ -59,10 +56,7 @@ def n_counter(search_for_this, input_list=[1, 4, 3, 5, 7, 1, 3, 2, 3, 3, 5, 3, 7
     """Count the number of times search_for_this shows up in the input_list.
     Return an integer.
     """
-    count = 0
-    for n in input_list:
-        if n is search_for_this:
-            count += 1
+
     return count
 
 
@@ -84,15 +78,7 @@ def fizz_buzz():
     """
     fizzBuzzList = []
     # your code here
-    for i in range(1, 101):
-        if i % 3 is 0 and i % 5 is 0:
-            fizzBuzzList.append("FizzBuzz")
-        elif i % 3 is 0:
-            fizzBuzzList.append("Fizz")
-        elif i % 5 is 0:
-            fizzBuzzList.append("Buzz")
-        else:
-            fizzBuzzList.append(i)
+
     return fizzBuzzList
 
 
@@ -106,9 +92,8 @@ def put_behind_bars(input_string="very naughty boy"):
     TIP: consider using the 'join' method in Python.
     TIP: make sure that you have a pipe on both ends of the string.
     """
-    bars = list(input_string)
-    bars = "|".join(bars)
-    return "|" + bars + "|"
+
+    return None
 
 
 def pet_filter(letter="a"):
@@ -125,9 +110,7 @@ def pet_filter(letter="a"):
             "hedgehog","guppy",]
     # fmt: on
     filtered = []
-    for pet in pets:
-        if letter in pet:
-            filtered.append(pet)
+
     return filtered
 
 
@@ -139,13 +122,8 @@ def best_letter_for_pets():
     import string
 
     the_alphabet = string.ascii_lowercase
-    longest = -1
     popular_letter = ""
-    for letter in the_alphabet:
-        x = len(pet_filter(letter))
-        if x > longest:
-            longest = x
-            popular_letter = letter
+
     return popular_letter
 
 
@@ -178,11 +156,6 @@ def make_filler_text_dictionary():
 
     url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
     wd = {}
-    for i in range(3, 8):
-        wd[i] = []
-        for _ in range(3):
-            r = requests.get(url + str(i))
-            wd[i].append(r.text)
 
     return wd
 
@@ -195,16 +168,11 @@ def random_filler_text(number_of_words=200):
     Make the paragraph have number_of_words words in it.
     Return it as a string
     TIP: you'll need the random library, 
-        see line 77 of Set4/hangman_leadboard.py for an example.
+        see line 77 of set4/hangman_leadboard.py for an example.
     """
     import random
 
-    my_dick = make_filler_text_dictionary()
-    words = []
-    for _ in range(number_of_words):
-        word_length = random.randint(3, 6)
-        word_index = random.randint(0, 2)
-        words.append(my_dick[word_length][word_index])
+    my_dict = make_filler_text_dictionary()
 
     return " ".join(words)
 
@@ -227,26 +195,8 @@ def fast_filler(number_of_words=200):
     import json
 
     fname = "dict_racey.json"
-    if os.path.isfile(fname):
-        with open(fname, "r") as inFile:
-            my_dick = json.load(inFile)
-    else:
-        my_dick = make_filler_text_dictionary()
-        with open(fname, "w") as outFile:
-            json.dump(my_dick, outFile)
-    words = []
 
-    for _ in range(number_of_words):
-        word_length = random.randint(3, 6)
-        word_index = random.randint(0, 2)
-        try:
-            words.append(my_dick[word_length][word_index])
-        except KeyError:
-            words.append(my_dick[str(word_length)][word_index])
-
-    paragraph = " ".join(words)
-    paragraph = paragraph[0].upper() + paragraph[1:]
-    return paragraph + "."
+    return None
 
 
 if __name__ == "__main__":
