@@ -31,25 +31,31 @@ def binary_search(low, high, actual_number):
     # Write your code in here
 
     print("\nWelcome to Kieran's Binary Search")
-    print("A guess between 1 and 100?")
+    print("A guess between {0} and {1}?".format(low, high))
+    print("Actual number: {}".format(actual_number))
 
-    started = True
-
-    while started:
-        actual_number = random.randint(low, high)
+    while guess != actual_number:
 
         mid = (high + low) // 2
-
+        mid = int(mid)
         try:
 
             if guess == actual_number:
-                print("You got it!")
-                started == False
-                break
-
-            elif guess != actual_number:
-                print("{}".format(guess))
+                guess = mid
                 tries += 1
+                print("You got it!")
+
+            elif mid > actual_number:
+                high = mid
+                tries += 1
+                mid = mid - 1
+                print("{}".format(mid))
+            else:
+                low = mid
+                tries += 1
+                mid = mid + 1
+                print("{}".format(mid))
+            guess = mid
 
         except (ValueError, TypeError):
             print("{} is not a number, try again: ".format(guess))
