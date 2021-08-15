@@ -1,2 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
-Not empty
+got help from alexander and ben in creating the some more graphs and changing some variabels around to show depth in how the areas are presented
